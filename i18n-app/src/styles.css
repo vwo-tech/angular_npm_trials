@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  padding-top: 70px; /* Add padding to the top to offset for the fixed navbar */
+  background-color: #f8f9fa; /* Add a light background color */
+}

@@ -1,20 +1,40 @@
-<div class="language-switcher">
-  <button (click)="switchLanguage('en')">English</button>
-  <button (click)="switchLanguage('zh-HK')">繁體中文</button>
+<main class="main">
+  <div class="content">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <div class="dropdown ms-auto">
+      <button class="dropbtn">{{ 'language' | translate }}</button>
+      <div class="dropdown-content">
+        <a (click)="switchLanguage('en')">English</a>
+        <a (click)="switchLanguage('zh-HK')">繁體中文</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="min-vh-100 d-flex justify-content-center align-items-center bg-light py-4">
+  <div class="col-lg-4 col-md-6 col-11 p-5"> 
+    <div class="card shadow border-0">
+      <div class="card-body">
+        <h2 class="card-title text-center">{{ 'login.title' | translate }}</h2>
+        <form (ngSubmit)="login()">
+          <div class="mb-4">
+            <label for="email" class="form-label mb-2">{{ 'login.email' | translate }}</label>
+            <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email" required>
+          </div>
+          <div class="mb-4">
+            <label for="password" class="form-label mb-2">{{ 'login.password' | translate }}</label>
+            <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-danger w-100 py-2 fs-6">{{ 'login.button' | translate }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="login-container">
-  <h2>{{ 'login.title' | translate }}</h2>
-  <form (ngSubmit)="login()">
-    <div class="form-group">
-      <label for="username">{{ 'login.username' | translate }}:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="username" required>
-    </div>
-    <div class="form-group">
-      <label for="password">{{ 'login.password' | translate }}:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required>
-    </div>
-    <button type="submit">{{ 'login.button' | translate }}</button>
-  </form>
 </div>
+</main>
+
 <router-outlet />
